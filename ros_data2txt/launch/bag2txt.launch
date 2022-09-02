@@ -1,0 +1,14 @@
+<launch>
+    <node name="odom2txt" pkg="ros_data2txt" type="odom2txt" respawn="false" output="screen" >
+        <param name="file_name"         type="string" value="/mnt/d/file_ws/Learning/ros/bag2txt_ws/log/9_2_odom.txt"/>
+        <param name="topic_name"         type="string" value="/odom"/>  
+    </node>
+
+    <node name="laser_scan2txt" pkg="ros_data2txt" type="laser_scan2txt" respawn="false" output="screen" >
+        <param name="file_name"         type="string" value="/mnt/d/file_ws/Learning/ros/bag2txt_ws/log/9_2_scan.txt"/>
+        <param name="topic_name"         type="string" value="/scan"/>  
+    </node>
+
+    <node name="playbag" pkg="rosbag" type="play"
+      args="--clock /mnt/d/file_ws/Learning/ros/bag2txt_ws/bag/scan_odom_2022_9_2.bag" />
+</launch>

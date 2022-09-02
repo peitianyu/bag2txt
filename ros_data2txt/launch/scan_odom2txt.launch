@@ -1,0 +1,10 @@
+<launch>
+    <node name="odom_scan2txt" pkg="ros_data2txt" type="odom_scan2txt" respawn="false" output="screen" >
+        <param name="file_name"         type="string" value="/mnt/d/file_ws/Learning/ros/bag2txt_ws/log/scan_odom.txt"/>
+        <param name="scan_topic_name"         type="string" value="/scan"/>  
+        <param name="odom_topic_name"         type="string" value="/odom"/> 
+    </node>
+
+    <node name="playbag" pkg="rosbag" type="play"
+      args="--clock /mnt/d/file_ws/Learning/ros/bag2txt_ws/bag/scan_odom_2022_7_26_m1.bag" />
+</launch>
